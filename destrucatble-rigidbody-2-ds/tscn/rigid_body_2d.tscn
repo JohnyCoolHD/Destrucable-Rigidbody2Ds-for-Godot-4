@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb0xhgnby6lgf"]
+
+[ext_resource type="Script" uid="uid://dwam4jllqn7nq" path="res://script/rigid_body_2d.gd" id="1_wltir"]
+[ext_resource type="PackedScene" uid="uid://b6g0lpepqpqvb" path="res://tscn/fragment.tscn" id="2_wb1vr"]
+
+[sub_resource type="Gradient" id="Gradient_vv3jy"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wb1vr"]
+gradient = SubResource("Gradient_vv3jy")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiowd"]
+size = Vector2(64, 64)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_wltir")
+fragment_scene = ExtResource("2_wb1vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_wb1vr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jiowd")
