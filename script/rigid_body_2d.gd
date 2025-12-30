@@ -48,5 +48,4 @@ func explode():
 			var dir = (global_position + offset - global_position).normalized()
 			frag.apply_impulse(dir * explosion_force)
 			frag.get_node("CollisionShape2D").shape.extents = fragment_size / 2
-			
 			get_parent().add_child(frag)
