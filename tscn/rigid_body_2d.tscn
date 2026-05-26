@@ -1,24 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb0xhgnby6lgf"]
+[gd_scene format=3 uid="uid://bb0xhgnby6lgf"]
 
-[ext_resource type="Script" uid="uid://dwam4jllqn7nq" path="res://script/rigid_body_2d.gd" id="1_wltir"]
-[ext_resource type="PackedScene" uid="uid://b6g0lpepqpqvb" path="res://tscn/fragment.tscn" id="2_wb1vr"]
+[ext_resource type="Script" uid="uid://dwam4jllqn7nq" path="res://script/fragment_component.gd" id="1_vv3jy"]
+[ext_resource type="Script" uid="uid://b4gl6a5o5o4f4" path="res://tscn/rigid_body_2d.gd" id="1_wb1vr"]
 
 [sub_resource type="Gradient" id="Gradient_vv3jy"]
-colors = PackedColorArray(1, 0, 0, 1, 0, 0, 1, 1)
+offsets = PackedFloat32Array(0, 0.76495725)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wb1vr"]
 gradient = SubResource("Gradient_vv3jy")
+width = 96
+height = 96
 fill_to = Vector2(1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiowd"]
-size = Vector2(64, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb1vr"]
+size = Vector2(112, 112)
 
-[node name="RigidBody2D" type="RigidBody2D"]
-script = ExtResource("1_wltir")
-fragment_scene = ExtResource("2_wb1vr")
+[node name="RigidBody2D" type="RigidBody2D" unique_id=349871585]
+script = ExtResource("1_wb1vr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="FragmentComponent" type="Node" parent="." unique_id=984645867 node_paths=PackedStringArray("body", "body_sprite")]
+script = ExtResource("1_vv3jy")
+body = NodePath("..")
+body_sprite = NodePath("../Sprite2D")
+fragment_size = 12
+explosion_force = 400
+metadata/_custom_type_script = "uid://dwam4jllqn7nq"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1171728019]
+texture_filter = 1
+position = Vector2(1.7881393e-06, 0)
+scale = Vector2(0.99999994, 1)
 texture = SubResource("GradientTexture2D_wb1vr")
+region_rect = Rect2(22.72662, 21, 9.27338, 20.59906)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_jiowd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1102064100]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_wb1vr")

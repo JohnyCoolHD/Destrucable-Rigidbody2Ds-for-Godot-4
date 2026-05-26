@@ -1,25 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://clmpnt3s8fjrw"]
+[gd_scene format=3 uid="uid://clmpnt3s8fjrw"]
 
 [ext_resource type="PackedScene" uid="uid://c3uyuttuhktb4" path="res://tscn/collider.tscn" id="1_l5jy4"]
 [ext_resource type="PackedScene" uid="uid://bb0xhgnby6lgf" path="res://tscn/rigid_body_2d.tscn" id="2_tou82"]
+[ext_resource type="Script" uid="uid://bqo775mgqum2p" path="res://tscn/label.gd" id="3_n4u7s"]
 
-[node name="project" type="Node2D"]
+[node name="project" type="Node2D" unique_id=747536174]
 
-[node name="StaticBody2D" parent="." instance=ExtResource("1_l5jy4")]
+[node name="StaticBody2D" parent="." unique_id=619377797 instance=ExtResource("1_l5jy4")]
 position = Vector2(313, 295)
 scale = Vector2(16.915, 1)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("1_l5jy4")]
+[node name="StaticBody2D2" parent="." unique_id=1480179967 instance=ExtResource("1_l5jy4")]
 position = Vector2(92, 151)
 scale = Vector2(1, 11.33)
 
-[node name="StaticBody2D3" parent="." instance=ExtResource("1_l5jy4")]
+[node name="StaticBody2D3" parent="." unique_id=1645204922 instance=ExtResource("1_l5jy4")]
 position = Vector2(564, 257)
 scale = Vector2(1, 11.065)
 
-[node name="StaticBody2D4" parent="." instance=ExtResource("1_l5jy4")]
+[node name="StaticBody2D4" parent="." unique_id=1792275304 instance=ExtResource("1_l5jy4")]
 position = Vector2(581, 148)
 scale = Vector2(8.01, 1)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("2_tou82")]
-position = Vector2(270, 223)
+[node name="RigidBody2D" parent="." unique_id=323308388 instance=ExtResource("2_tou82")]
+position = Vector2(303, 214)
+
+[node name="Label" type="Label" parent="." unique_id=2047063315]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_n4u7s")
